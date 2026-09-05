@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+}
+body{
+    background-color: #222;
+    color: white;
+}
+h1,h3,h4{
+    
+    font-size: 1rem;
+    margin: auto;
+text-align: center;
+}
+h1{
+    color: rgb(124, 124, 240);
+    margin-bottom: 10px;
+
+
+}
+.input{
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    color: red;
+    padding: 10px;
+}
+.Expense-list{
+    font-family: sans-serif;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+}
+h3{
+    background-color: rgb(223, 170, 90);
+    
+
+}
+#income{
+    color: oklab(51.491% 0.16695 -0.20033);
+    line-height: 15px;
+    margin-top: 20px;
+    font-size: 1rem;
+    
+}
