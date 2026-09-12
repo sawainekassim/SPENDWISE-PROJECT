@@ -1,50 +1,144 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+* {
+  box-sizing: border-box;
+  }
 
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f4f6f8;
+color: #333;
+}
 
+header {
+text-align: center;
+background-color: #2c3e50;
+color: white;
+padding: 30px;
 }
-body{
-    background-color: #222;
-    color: white;
+
+header img {
+display: block;
+margin: 0 auto 10px;
 }
-h1,h3,h4{
-    
-    font-size: 1rem;
-    margin: auto;
+
+header h1 {
+margin: 10px 0;
+}
+
+main {
+width: 90%;
+max-width: 1000px;
+margin: 30px auto;
+}
+
+section {
+background-color: white;
+padding: 25px;
+margin-bottom: 25px;
+border-radius: 8px;
+}
+
+h2 {
+color: #2c3e50;
+}
+
+/* Form styling */
+.add-expense-section form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.add-expense-section input,
+.add-expense-section select {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+/* Negation pseudo-class */
+input:not([type="submit"]) {
+background-color: #fafafa;
+}
+
+/* Focus pseudo-class */
+input:focus,
+select:focus {
+outline: none;
+border: 2px solid #3498db;
+}
+
+/* Direct child selector */
+.add-expense-section > h2 {
+border-bottom: 2px solid #3498db;
+padding-bottom: 10px;
+}
+
+button {
+padding: 12px;
+margin-top: 10px;
+background-color: #3498db;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #2980b9;
+}
+
+/* Table styling */
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th,
+td {
+border: 1px solid #ccc;
+padding: 12px;
+text-align: left;
+}
+
+/* Colored header row */
+thead tr:first-child {
+background-color: #2c3e50;
+color: white;
+}
+
+/* Alternating row background colors */
+tbody tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+/* Descendant selector */
+.expenses-section td {
+font-size: 15px;
+}
+
+/* Table row hover effect */
+tbody tr:hover {
+background-color: #dfefff;
+}
+
+/* Details section */
+details {
+padding: 10px;
+}
+
+summary {
+font-weight: bold;
+cursor: pointer;
+color: #2c3e50;
+}
+
+.video-section {
 text-align: center;
 }
-h1{
-    color: rgb(124, 124, 240);
-    margin-bottom: 10px;
 
-
-}
-.input{
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    margin-top: 30px;
-    color: red;
-    padding: 10px;
-}
-.Expense-list{
-    font-family: sans-serif;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 30px;
-}
-h3{
-    background-color: rgb(223, 170, 90);
-    
-
-}
-#income{
-    color: oklab(51.491% 0.16695 -0.20033);
-    line-height: 15px;
-    margin-top: 20px;
-    font-size: 1rem;
-    
+iframe {
+max-width: 100%;
+border: none;
 }

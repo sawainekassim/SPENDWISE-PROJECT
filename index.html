@@ -7,21 +7,131 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>My Budget Tracker </h1>
-    <h4 id="income">Track your income and expenses in one place.</h4>
-    <section class="input">
-        <label for="Expense-name">Expense name</label>
-        <input type="text" id="Expense-name">
-        <label for="Amount">Amount</label>
-        <input type="number" id="Amount">
-        <label for="Category">Category</label>
-        <input type="text" id="Category">
-        
+   
+
+<body>
+
+
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
+         alt="Budget Tracker Logo"
+         width="80">
+
+    <h1>My Budget Tracker</h1>
+    <p>Track your expenses and manage your money wisely.</p>
+</header>
+
+<main>
+
+    <section class="add-expense-section">
+        <h2>Add Expense</h2>
+
+        <form>
+            <label for="expense-name">Expense Name:</label>
+            <input type="text" id="expense-name" name="expense-name" placeholder="Enter expense name">
+
+            <label for="expense-amount">Amount:</label>
+            <input type="number" id="expense-amount" name="expense-amount" placeholder="Enter amount">
+
+            <label for="expense-category">Category:</label>
+            <select id="expense-category" name="expense-category">
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="rent">Rent</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="expense-date">Date:</label>
+            <input type="date" id="expense-date" name="expense-date">
+
+            <button type="button">Add Expense</button>
+        </form>
     </section>
-    <section class="Expense-list">
-        <h3>Your Expenses</h3>
-        <p>No Expenses yet</p>
+
+    <section class="expenses-section">
+        <h2>Expenses</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Lunch</td>
+                    <td>KSh 500</td>
+                    <td>Food</td>
+                    <td>2026-09-07</td>
+                </tr>
+
+                <tr>
+                    <td>Bus Fare</td>
+                    <td>KSh 200</td>
+                    <td>Transport</td>
+                    <td>2026-09-08</td>
+                </tr>
+
+                <tr>
+                    <td>Electricity Bill</td>
+                    <td>KSh 2,500</td>
+                    <td>Other</td>
+                    <td>2026-09-09</td>
+                </tr>
+
+                <tr>
+                    <td>Movie Ticket</td>
+                    <td>KSh 800</td>
+                    <td>Entertainment</td>
+                    <td>2026-09-10</td>
+                </tr>
+
+                <tr>
+                    <td>House Rent</td>
+                    <td>KSh 15,000</td>
+                    <td>Rent</td>
+                    <td>2026-09-11</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
-    
+
+    <section class="video-section">
+        <h2>Budgeting Tips</h2>
+
+        <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/HQzoZfc3GwQ"
+            title="Budgeting Tips Video"
+            frameborder="0"
+            allowfullscreen>
+        </iframe>
+    </section>
+
+    <section class="help-section">
+        <details>
+            <summary>How to use this tracker</summary>
+            <p>
+                Enter the name, amount, category, and date of an expense
+                in the form above. Click the Add Expense button to submit
+                the information. The expense will be added to the tracker
+                when JavaScript functionality is introduced.
+            </p>
+        </details>
+    </section>
+
+</main>
+```
+
+</body>
+</html>
+
+  
 </body>
 </html>
