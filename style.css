@@ -1,144 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+
 * {
-  box-sizing: border-box;
-  }
+
+    box-sizing: border-box;
+
+}
+
+
 
 body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
-background-color: #f4f6f8;
-color: #333;
+
+    margin: 0;
+
+    padding: 0;
+
+    background-color: #f4f7f6;
+
+    color: #263238;
+
+    font-family: 'Open Sans', sans-serif;
+
+    line-height: 1.6;
+
 }
+
+
+
+/* Page Heading Card */
 
 header {
-text-align: center;
-background-color: #2c3e50;
-color: white;
-padding: 30px;
+
+    background-color: #173f5f;
+
+    color: #ffffff;
+
+    text-align: center;
+
+    margin: 0 0 30px 0;
+
+    padding: 35px 20px;
+
+    border-bottom: 5px solid #2a9d8f;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
 }
+
+
 
 header img {
-display: block;
-margin: 0 auto 10px;
+
+    display: block;
+
+    margin: 0 auto 15px auto;
+
 }
+
+
 
 header h1 {
-margin: 10px 0;
+
+    margin: 0 0 8px 0;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 2.2rem;
+
+    font-weight: 700;
+
 }
+
+
+
+header p {
+
+    margin: 0;
+
+    font-size: 1rem;
+
+}
+
+
+
+/* Main Layout */
 
 main {
-width: 90%;
-max-width: 1000px;
-margin: 30px auto;
+
+    width: 90%;
+
+    max-width: 1000px;
+
+    margin: 0 auto 40px auto;
+
 }
+
+
+
+/* Section Cards */
 
 section {
-background-color: white;
-padding: 25px;
-margin-bottom: 25px;
-border-radius: 8px;
+
+    background-color: #ffffff;
+
+    margin-bottom: 30px;
+
+    padding: 30px;
+
+    border: 1px solid #d9e2e1;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
 }
 
-h2 {
-color: #2c3e50;
+
+
+section h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    color: #173f5f;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 1.5rem;
+
 }
 
-/* Form styling */
+
+
+/* Add Expense Form */
+
 .add-expense-section form {
-display: flex;
-flex-direction: column;
-gap: 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
 }
+
+
+
+.add-expense-section label {
+
+    margin-top: 8px;
+
+    color: #34495e;
+
+    font-weight: 600;
+
+}
+
+
 
 .add-expense-section input,
+
 .add-expense-section select {
-padding: 10px;
-border: 1px solid #ccc;
-border-radius: 4px;
+
+    width: 100%;
+
+    padding: 12px 14px;
+
+    margin-bottom: 8px;
+
+    background-color: #ffffff;
+
+    color: #263238;
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-size: 1rem;
+
+    border: 1px solid #b8c7c5;
+
+    border-radius: 7px;
+
 }
 
-/* Negation pseudo-class */
-input:not([type="submit"]) {
-background-color: #fafafa;
+
+
+/* Input Focus */
+
+.add-expense-section input:focus,
+
+.add-expense-section select:focus {
+
+    outline: none;
+
+    border: 2px solid #2a9d8f;
+
+    box-shadow: 0 0 5px rgba(42, 157, 143, 0.2);
+
 }
 
-/* Focus pseudo-class */
-input:focus,
-select:focus {
-outline: none;
-border: 2px solid #3498db;
-}
 
-/* Direct child selector */
-.add-expense-section > h2 {
-border-bottom: 2px solid #3498db;
-padding-bottom: 10px;
-}
+
+/* Button */
 
 button {
-padding: 12px;
-margin-top: 10px;
-background-color: #3498db;
-color: white;
-border: none;
-border-radius: 4px;
-cursor: pointer;
+
+    margin-top: 12px;
+
+    padding: 13px 20px;
+
+    background-color: #2a9d8f;
+
+    color: #ffffff;
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    border: 2px solid #2a9d8f;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+
 }
+
+
 
 button:hover {
-background-color: #2980b9;
+
+    background-color: #21867a;
+
+    border-color: #21867a;
+
 }
 
-/* Table styling */
-table {
-width: 100%;
-border-collapse: collapse;
+
+
+/* Expense Table */
+
+.expenses-section table {
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border: 1px solid #cbd8d6;
+
+    border-radius: 8px;
+
 }
 
-th,
-td {
-border: 1px solid #ccc;
-padding: 12px;
-text-align: left;
+
+
+.expenses-section th {
+
+    padding: 14px 12px;
+
+    background-color: #173f5f;
+
+    color: #ffffff;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 600;
+
+    text-align: left;
+
+    border: 1px solid #173f5f;
+
 }
 
-/* Colored header row */
-thead tr:first-child {
-background-color: #2c3e50;
-color: white;
-}
 
-/* Alternating row background colors */
-tbody tr:nth-child(even) {
-background-color: #f2f2f2;
-}
 
-/* Descendant selector */
 .expenses-section td {
-font-size: 15px;
+
+    padding: 13px 12px;
+
+    color: #37474f;
+
+    border: 1px solid #d5dfde;
+
 }
 
-/* Table row hover effect */
-tbody tr:hover {
-background-color: #dfefff;
+
+
+.expenses-section tbody tr:nth-child(even) {
+
+    background-color: #eef6f5;
+
 }
 
-/* Details section */
-details {
-padding: 10px;
+
+
+.expenses-section tbody tr:nth-child(odd) {
+
+    background-color: #ffffff;
+
 }
 
-summary {
-font-weight: bold;
-cursor: pointer;
-color: #2c3e50;
+
+
+.expenses-section tbody tr:hover {
+
+    background-color: #d9eeeb;
+
 }
+
+
+
+/* Budgeting Tips */
 
 .video-section {
-text-align: center;
+
+    text-align: center;
+
 }
 
-iframe {
-max-width: 100%;
-border: none;
+
+
+.video-section  {
+
+    max-width: 100%;
+
+    border: 1px solid #d9e2e1;
+
+    border-radius: 8px;
+
+}
+
+
+
+/* Help Section */
+
+.help-section {
+
+    color: #173f5f;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+
+.help-section p {
+
+    margin-bottom: 0;
+
+}
+
+
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+
+    main {
+
+        width: 94%;
+
+    }
+
+
+
+
+
+    section {
+
+        padding: 20px;
+
+    }
+
+
+
+    header h1 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+
+    .expenses-section {
+
+        overflow-x: auto;
+
+    }
+
+
+
+    .expenses-section table {
+
+        min-width: 600px;
+
+    }
+
+
+
 }
