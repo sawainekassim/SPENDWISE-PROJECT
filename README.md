@@ -1,72 +1,164 @@
-# My Budget Tracker
+# SpendWise Dashboard
 
-## Project Description
+## Project Overview
 
-My Budget Tracker is a simple HTML and CSS project designed to help users record and organize their daily expenses.
+SpendWise is a responsive personal finance dashboard designed to help users view and organize their financial information in a clean and modern interface.
+
+This project was created as the Week 4 dashboard shell for the SpendWise capstone project. The focus of this assignment is the visual structure and responsive layout of the application. The dashboard currently uses static financial information and does not include JavaScript functionality.
 
 ## Features
 
-* Expense table with Name, Amount, Category, and Date columns.
-* Five sample expense records.
-* Add Expense form.
-* Category dropdown with Food, Transport, Rent, Entertainment, and Other options.
-* Expense date input.
-* Budgeting tips YouTube video.
-* Budget Tracker logo.
-* Collapsible "How to use this tracker" section.
-* Hover effects on table rows.
-* Focus effects on form inputs.
-* Responsive table and video layout.
+* Responsive dashboard layout
+* Sidebar navigation menu
+* Dashboard header with account information
+* Financial summary cards
+* Six spending category cards
+* Recent transactions section
+* Responsive mobile layout
+* Hover and keyboard focus interactions on category cards
+* CSS custom properties for the application theme
+* Dark theme support using the user's system preference
 
-## Project Files
+## Dashboard Sections
 
-### index.html
+### Sidebar
 
-Contains the structure and content of the Budget Tracker, including:
+The sidebar contains the main navigation options:
 
-* Page heading and logo.
-* Add Expense form.
-* Expense table.
-* Multimedia iframe.
-* Details and summary elements.
+* Dashboard
+* Expenses
+* Reports
+* Budgets
+* Transactions
+* Settings
 
-### style.css
+### Header
 
-Contains the styling for the Budget Tracker, including:
+The dashboard header displays:
 
-* Page layout and colors.
-* Form styling.
-* Table borders and spacing.
-* Alternating table row colors.
-* Table hover effects.
-* Input focus effects.
-* Button styling.
-* Advanced CSS selectors.
+* Welcome message
+* Dashboard title
+* Total account balance
+* User profile information
 
-## Advanced CSS Selectors Used
+### Financial Summary
 
-The project uses more than three advanced CSS selectors:
+The summary section displays three static financial figures:
 
-1. Descendant selector:
-   `.expenses-section td`
+* Total Income
+* Total Expenses
+* Total Savings
 
-2. Direct child selector:
-   `.add-expense-section > h2`
+### Spending Categories
 
-3. Position pseudo-class:
-   `tbody tr:nth-child(even)`
+The dashboard contains six financial category cards:
 
-4. Negation pseudo-class:
-   `input:not([type="submit"])`
+1. Food
+2. Transport
+3. Rent
+4. Entertainment
+5. Savings
+6. Utilities
 
-5. Focus pseudo-class:
-   `input:focus`
+Each card displays a category name, amount, percentage, description, and progress indicator.
+
+### Recent Transactions
+
+The recent activity section displays example transactions including:
+
+* Lunch
+* Bus Fare
+* Electricity Bill
+* Movie Ticket
 
 ## Technologies Used
 
 * HTML5
 * CSS3
+* CSS Grid
+* CSS Flexbox
+* CSS Custom Properties
+* CSS Media Queries
+* Google Fonts
+
+## CSS Layout
+
+CSS Grid is used for the overall dashboard structure and category card layouts.
+
+Flexbox is used for:
+
+* Sidebar navigation
+* Header content
+* Profile information
+* Financial summary cards
+* Category card content
+* Transaction rows
+
+No absolute positioning is used for the page layout.
+
+## Responsive Design
+
+The dashboard is responsive and adapts to different screen sizes.
+
+Below 768px:
+
+* The sidebar and main content change to a single-column layout.
+* Navigation items wrap for smaller screens.
+* Category cards display in a single column.
+* Header content adapts to the smaller screen.
+
+The responsive layout can be tested using the browser's DevTools Device Toolbar.
+
+## Theme
+
+The project uses CSS custom properties defined in the `:root` selector for the main color palette.
+
+The theme includes variables for:
+
+* Brand color
+* Accent color
+* Surface color
+* Background color
+* Primary text
+* Secondary text
+* Borders
+
+A dark theme is also included using the `prefers-color-scheme: dark` media query.
+
+## Card Micro-interactions
+
+The spending category cards include subtle hover and keyboard focus interactions.
+
+The interactions use:
+
+* `transform`
+* `box-shadow`
+* `outline`
+
+The transition duration is 200ms, which is within the required 250ms maximum.
+
+## Project Structure
+
+```text
+SpendWise/
+├── index.html
+├── style.css
+└── README.md
+```
 
 ## Future Improvements
 
-JavaScript will be added in future weeks to make the Add Expense button functional and allow users to dynamically add and manage expenses.
+Future versions of SpendWise can include:
+
+* JavaScript expense tracking
+* Add and delete expenses
+* Local storage
+* Budget calculations
+* Expense filtering
+* Financial charts
+* User authentication
+* Database integration
+
+## Author
+
+SpendWise Dashboard — Week 4 Capstone Project
