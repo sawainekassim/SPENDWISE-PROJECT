@@ -1,164 +1,210 @@
-# SpendWise Dashboard
+# SpendWise
 
-## Project Overview
+## Project Description
 
-SpendWise is a responsive personal finance dashboard designed to help users view and organize their financial information in a clean and modern interface.
+SpendWise is a personal budgeting dashboard designed to help users understand and manage their income, expenses, balance, and savings.
 
-This project was created as the Week 4 dashboard shell for the SpendWise capstone project. The focus of this assignment is the visual structure and responsive layout of the application. The dashboard currently uses static financial information and does not include JavaScript functionality.
+This project continues the existing SpendWise dashboard by adding JavaScript functionality to the original HTML and CSS design. The JavaScript allows the application to collect financial information from the user, perform calculations, and display the calculated results in both the browser console and the SpendWise dashboard.
 
-## Features
+The existing dashboard includes financial information such as total income, total expenses, total savings, spending categories, and recent transactions. JavaScript has been added to make the financial information interactive and data-driven.
 
-* Responsive dashboard layout
-* Sidebar navigation menu
-* Dashboard header with account information
-* Financial summary cards
-* Six spending category cards
-* Recent transactions section
-* Responsive mobile layout
-* Hover and keyboard focus interactions on category cards
-* CSS custom properties for the application theme
-* Dark theme support using the user's system preference
+## JavaScript Concepts Implemented
 
-## Dashboard Sections
+The project demonstrates several JavaScript concepts covered in this assignment:
 
-### Sidebar
+* Variables
+* Numbers and strings
+* User input
+* Type conversion
+* Calculations
+* Functions
+* Conditional statements
+* DOM manipulation
+* Console output
 
-The sidebar contains the main navigation options:
+## Variables
 
-* Dashboard
-* Expenses
-* Reports
-* Budgets
-* Transactions
-* Settings
+Variables are used to store the financial information needed by SpendWise.
 
-### Header
+Examples include:
 
-The dashboard header displays:
+* `monthlyIncome`
+* `foodExpenses`
+* `transportExpenses`
+* `rentExpenses`
+* `entertainmentExpenses`
+* `utilitiesExpenses`
+* `totalExpenses`
+* `remainingBalance`
+* `totalSavings`
 
-* Welcome message
-* Dashboard title
-* Total account balance
-* User profile information
+For example:
 
-### Financial Summary
+```javascript
+let monthlyIncome = 85000;
+let foodExpenses = 8000;
+let transportExpenses = 4000;
+let totalExpenses = 0;
+```
 
-The summary section displays three static financial figures:
+These variables allow the program to store the user's income and expense information and use that information in calculations.
 
+## User Input
+
+SpendWise collects user information using JavaScript's `prompt()` function.
+
+The application asks the user to enter their monthly income and expenses.
+
+For example:
+
+```javascript
+let incomeInput = prompt("Enter your monthly income in KSh:");
+```
+
+The value collected from the prompt is converted into a number using `Number()`:
+
+```javascript
+let income = Number(incomeInput);
+```
+
+The application collects information for:
+
+* Monthly income
+* Food expenses
+* Transport expenses
+* Rent expenses
+* Entertainment expenses
+* Utilities expenses
+
+The input is checked to make sure that it is a valid number and is not negative before it is stored.
+
+## Calculations
+
+SpendWise uses JavaScript arithmetic operators to calculate the user's total expenses.
+
+The total expenses are calculated by adding all the expense categories:
+
+```javascript
+totalExpenses =
+    foodExpenses +
+    transportExpenses +
+    rentExpenses +
+    entertainmentExpenses +
+    utilitiesExpenses;
+```
+
+The remaining balance is calculated by subtracting total expenses from monthly income:
+
+```javascript
+remainingBalance = monthlyIncome - totalExpenses;
+```
+
+The savings value is based on the remaining balance. If the remaining balance is negative, savings are displayed as zero.
+
+## Functions
+
+Functions are used to organize the JavaScript code and make the application easier to manage.
+
+### `getUserIncome()`
+
+This function collects the user's monthly income using a JavaScript prompt and stores the valid value in the `monthlyIncome` variable.
+
+### `getUserExpenses()`
+
+This function collects the user's food, transport, rent, entertainment, and utilities expenses.
+
+### `calculateTotalExpenses()`
+
+This function adds all expense categories together and returns the total expenses.
+
+### `calculateRemainingBalance()`
+
+This function subtracts total expenses from monthly income and returns the remaining balance.
+
+### `calculateSavings()`
+
+This function calculates the amount remaining after expenses and determines the savings value.
+
+### `displayResults()`
+
+This function displays the calculated financial information in the browser console using clearly labeled output.
+
+### `updateDashboard()`
+
+This function uses the DOM to update the existing SpendWise dashboard with the calculated income, expenses, balance, and savings.
+
+### `runSpendWise()`
+
+This function controls the main flow of the application by calling the input, calculation, console output, and dashboard update functions.
+
+## Displaying Results
+
+The calculated results are displayed in the browser console using `console.log()`.
+
+The console displays:
+
+* Monthly income
+* Food expenses
+* Transport expenses
+* Rent expenses
+* Entertainment expenses
+* Utilities expenses
+* Total expenses
+* Remaining balance
+* Total savings
+* Budget status
+
+The results are clearly labeled so that they are easy to understand.
+
+The JavaScript also updates the existing SpendWise dashboard using DOM manipulation.
+
+The dashboard displays the calculated:
+
+* Total Balance
 * Total Income
 * Total Expenses
 * Total Savings
 
-### Spending Categories
+## Testing
 
-The dashboard contains six financial category cards:
+The application was tested by entering different income and expense values.
 
-1. Food
-2. Transport
-3. Rent
-4. Entertainment
-5. Savings
-6. Utilities
+The following situations were tested:
 
-Each card displays a category name, amount, percentage, description, and progress indicator.
+1. Income greater than expenses.
+2. Income equal to expenses.
+3. Expenses greater than income.
+4. Different expense amounts.
+5. Zero values.
+6. Invalid input.
+7. Negative input.
 
-### Recent Transactions
-
-The recent activity section displays example transactions including:
-
-* Lunch
-* Bus Fare
-* Electricity Bill
-* Movie Ticket
-
-## Technologies Used
-
-* HTML5
-* CSS3
-* CSS Grid
-* CSS Flexbox
-* CSS Custom Properties
-* CSS Media Queries
-* Google Fonts
-
-## CSS Layout
-
-CSS Grid is used for the overall dashboard structure and category card layouts.
-
-Flexbox is used for:
-
-* Sidebar navigation
-* Header content
-* Profile information
-* Financial summary cards
-* Category card content
-* Transaction rows
-
-No absolute positioning is used for the page layout.
-
-## Responsive Design
-
-The dashboard is responsive and adapts to different screen sizes.
-
-Below 768px:
-
-* The sidebar and main content change to a single-column layout.
-* Navigation items wrap for smaller screens.
-* Category cards display in a single column.
-* Header content adapts to the smaller screen.
-
-The responsive layout can be tested using the browser's DevTools Device Toolbar.
-
-## Theme
-
-The project uses CSS custom properties defined in the `:root` selector for the main color palette.
-
-The theme includes variables for:
-
-* Brand color
-* Accent color
-* Surface color
-* Background color
-* Primary text
-* Secondary text
-* Borders
-
-A dark theme is also included using the `prefers-color-scheme: dark` media query.
-
-## Card Micro-interactions
-
-The spending category cards include subtle hover and keyboard focus interactions.
-
-The interactions use:
-
-* `transform`
-* `box-shadow`
-* `outline`
-
-The transition duration is 200ms, which is within the required 250ms maximum.
+The calculations were checked in the browser console to ensure that total expenses and remaining balance were calculated correctly.
 
 ## Project Structure
 
 ```text
 SpendWise/
+│
 ├── index.html
 ├── style.css
+├── script.js
 └── README.md
 ```
 
-## Future Improvements
+## How to Run the Project
 
-Future versions of SpendWise can include:
+1. Open the SpendWise project folder.
+2. Make sure `index.html`, `style.css`, `script.js`, and `README.md` are included.
+3. Open `index.html` in a web browser.
+4. Enter the requested income and expense information when the prompts appear.
+5. Open the browser Developer Tools.
+6. Select the Console tab.
+7. Review the SpendWise calculation results.
+8. Check the dashboard to see the updated financial values.
 
-* JavaScript expense tracking
-* Add and delete expenses
-* Local storage
-* Budget calculations
-* Expense filtering
-* Financial charts
-* User authentication
-* Database integration
+## Conclusion
 
-## Author
+The JavaScript foundation transforms the existing SpendWise dashboard from a primarily visual interface into an application that can collect and process financial data.
 
-SpendWise Dashboard — Week 4 Capstone Project
+The project demonstrates the use of JavaScript variables, data types, user input, calculations, functions, conditional statements, console output, and DOM manipulation while continuing the original SpendWise design.
