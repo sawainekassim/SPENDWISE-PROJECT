@@ -1,81 +1,43 @@
 let monthlyIncome = 85000;
-let foodExpenses = 8000;
-let transportExpenses = 4000;
-let rentExpenses = 15000;
-let entertainmentExpenses = 2000;
-let utilitiesExpenses = 3000;
+
+let expenses = [
+    {
+        category: "Food",
+        amount: 8000,
+        description: "Food expenses"
+    },
+    {
+        category: "Transport",
+        amount: 4000,
+        description: "Transport expenses"
+    },
+    {
+        category: "Rent",
+        amount: 15000,
+        description: "Monthly rent"
+    },
+    {
+        category: "Entertainment",
+        amount: 2000,
+        description: "Entertainment expenses"
+    },
+    {
+        category: "Utilities",
+        amount: 3000,
+        description: "Utility bills"
+    }
+];
 
 let totalExpenses = 0;
 let remainingBalance = 0;
 let totalSavings = 0;
 
-function getUserIncome() {
-    let incomeInput = prompt("Enter your monthly income in KSh:");
-
-    if (incomeInput !== null && incomeInput.trim() !== "") {
-        let income = Number(incomeInput);
-
-        if (!isNaN(income) && income >= 0) {
-            monthlyIncome = income;
-        }
-    }
-}
-
-function getUserExpenses() {
-    let foodInput = prompt("Enter your food expenses in KSh:");
-    let transportInput = prompt("Enter your transport expenses in KSh:");
-    let rentInput = prompt("Enter your rent expenses in KSh:");
-    let entertainmentInput = prompt("Enter your entertainment expenses in KSh:");
-    let utilitiesInput = prompt("Enter your utilities expenses in KSh:");
-
-    if (foodInput !== null && foodInput.trim() !== "") {
-        let food = Number(foodInput);
-
-        if (!isNaN(food) && food >= 0) {
-            foodExpenses = food;
-        }
-    }
-
-    if (transportInput !== null && transportInput.trim() !== "") {
-        let transport = Number(transportInput);
-
-        if (!isNaN(transport) && transport >= 0) {
-            transportExpenses = transport;
-        }
-    }
-
-    if (rentInput !== null && rentInput.trim() !== "") {
-        let rent = Number(rentInput);
-
-        if (!isNaN(rent) && rent >= 0) {
-            rentExpenses = rent;
-        }
-    }
-
-    if (entertainmentInput !== null && entertainmentInput.trim() !== "") {
-        let entertainment = Number(entertainmentInput);
-
-        if (!isNaN(entertainment) && entertainment >= 0) {
-            entertainmentExpenses = entertainment;
-        }
-    }
-
-    if (utilitiesInput !== null && utilitiesInput.trim() !== "") {
-        let utilities = Number(utilitiesInput);
-
-        if (!isNaN(utilities) && utilities >= 0) {
-            utilitiesExpenses = utilities;
-        }
-    }
-}
-
 function calculateTotalExpenses() {
-    totalExpenses =
-        foodExpenses +
-        transportExpenses +
-        rentExpenses +
-        entertainmentExpenses +
-        utilitiesExpenses;
+    totalExpenses = 0;
+
+    for (let i = 0; i < expenses.length; i++) {
+        totalExpenses += expenses[i].amount;
+    }
 
     return totalExpenses;
 }
@@ -87,34 +49,13 @@ function calculateRemainingBalance() {
 }
 
 function calculateSavings() {
-    totalSavings = calculateRemainingBalance();
-
-    if (totalSavings < 0) {
+    if (remainingBalance > 0) {
+        totalSavings = remainingBalance;
+    } else {
         totalSavings = 0;
     }
 
     return totalSavings;
-}
-
-function displayResults() {
-    console.log("===== SpendWise Budget Summary =====");
-    console.log("Monthly Income: KSh " + monthlyIncome.toFixed(2));
-    console.log("Food Expenses: KSh " + foodExpenses.toFixed(2));
-    console.log("Transport Expenses: KSh " + transportExpenses.toFixed(2));
-    console.log("Rent Expenses: KSh " + rentExpenses.toFixed(2));
-    console.log("Entertainment Expenses: KSh " + entertainmentExpenses.toFixed(2));
-    console.log("Utilities Expenses: KSh " + utilitiesExpenses.toFixed(2));
-    console.log("Total Expenses: KSh " + totalExpenses.toFixed(2));
-    console.log("Remaining Balance: KSh " + remainingBalance.toFixed(2));
-    console.log("Total Savings: KSh " + totalSavings.toFixed(2));
-
-    if (remainingBalance > 0) {
-        console.log("Status: You are within your budget.");
-    } else if (remainingBalance === 0) {
-        console.log("Status: You have used your entire income.");
-    } else {
-        console.log("Status: You have exceeded your income.");
-    }
 }
 
 function updateDashboard() {
@@ -131,14 +72,79 @@ function updateDashboard() {
         "KSh " + totalSavings.toLocaleString();
 }
 
-function runSpendWise() {
-    getUserIncome();
-    getUserExpenses();
+function displayExpenses() {
+    let expenseList = document.getElementById("expense-list");
+
+    expenseList.innerHTML = "";
+
+    for (let i = 0; i < expenses.length; i++) {
+        let expense = expenses[i];
+
+        let expenseItem = document.createElement("div");
+
+        expenseItem.innerHTML = `
+            <p>
+                <strong>${expense.category}</strong>
+                - ${expense.description}
+                - KSh ${expense.amount.toLocaleString()}
+            </p>
+        `;
+
+        expenseList.appendChild(expenseItem);
+    }
+}
+
+function displayBudgetMessage() {
+    let message = document.getElementById("budget-message");
+
+    if (remainingBalance > 0) {
+        message.textContent =
+            "Good job! You are within your budget and have money remaining.";
+    } else if (remainingBalance === 0) {
+        message.textContent =
+            "You have used your entire monthly income.";
+    } else {
+        message.textContent =
+            "Warning: Your expenses have exceeded your monthly income.";
+    }
+}
+
+function updateSpendWise() {
     calculateTotalExpenses();
     calculateRemainingBalance();
     calculateSavings();
-    displayResults();
     updateDashboard();
+    displayExpenses();
+    displayBudgetMessage();
 }
 
-runSpendWise();
+document
+    .getElementById("expense-form")
+    .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let category = document.getElementById("expense-category").value;
+        let amount = Number(
+            document.getElementById("expense-amount").value
+        );
+        let description =
+            document.getElementById("expense-description").value;
+
+        if (category === "" || description.trim() === "" || amount <= 0) {
+            document.getElementById("budget-message").textContent =
+                "Please enter a valid category, description, and amount.";
+            return;
+        }
+
+        expenses.push({
+            category: category,
+            amount: amount,
+            description: description
+        });
+
+        updateSpendWise();
+
+        document.getElementById("expense-form").reset();
+    });
+
+updateSpendWise();
